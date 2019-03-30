@@ -2,7 +2,7 @@ defmodule LiveviewDemoWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :liveview_demo
 
   socket "/socket", LiveviewDemoWeb.UserSocket,
-    websocket: true,
+    websocket: [timeout: 45_000],
     longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.

@@ -10,7 +10,6 @@ use Mix.Config
 # Configures the endpoint
 config :liveview_demo, LiveviewDemoWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "a8Iv2zlN/aAJb7QB2LTQFnjox0lleX45VPg50zHVqlp+Oet8jq+OMBUqDPHadrTQ",
   render_errors: [view: LiveviewDemoWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: LiveviewDemo.PubSub, adapter: Phoenix.PubSub.PG2]
 
