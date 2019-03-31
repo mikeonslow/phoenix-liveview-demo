@@ -12,7 +12,7 @@ use Mix.Config
 
 config :liveview_demo, LiveviewDemoWeb.Endpoint,
   http: [port: System.get_env("PORT")],
-  url: [scheme: "https", host: "fathomless-anchorage-39149", port: 443],
+  url: [scheme: "https", host: "phoenix-liveview-demo", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json",
   secret_key_base: "bn5OIsGf8PsWXA0Mo2yldEx2bjfM9JQl"
