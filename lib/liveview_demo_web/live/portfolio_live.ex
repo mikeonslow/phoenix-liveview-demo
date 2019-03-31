@@ -1,8 +1,9 @@
 defmodule LiveviewDemoWeb.PortfolioLive do
   use Phoenix.LiveView
+  alias LiveviewDemoWeb.PortfolioView
 
   def mount(_session, socket) do
-    {:ok, assign(socket, :val, 0)}
+    {:ok, assign(socket, :val, 5)}
   end
 
   def handle_event("inc", _, socket) do
@@ -14,13 +15,7 @@ defmodule LiveviewDemoWeb.PortfolioLive do
   end
 
   def render(assigns) do
-    ~L"""
-    <div>
-      <h1>The count is: <%= @val %></h1>
-      <button phx-click="dec">-</button>
-      <button phx-click="inc">+</button>
-    </div>
-    """
+    PortfolioView.render("index.html", assigns)
   end
 
 end

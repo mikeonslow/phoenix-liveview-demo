@@ -19,7 +19,8 @@ config :liveview_demo, LiveviewDemoWeb.Endpoint,
       "--watch-stdin",
       cd: Path.expand("../assets", __DIR__)
     ]
-  ]
+  ],
+  secret_key_base: "bn5OIsGf8PsWXA0Mo2yldEx2bjfM9JQl"
 
 # ## SSL Support
 #

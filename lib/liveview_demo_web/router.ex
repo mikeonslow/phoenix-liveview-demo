@@ -8,6 +8,7 @@ defmodule LiveviewDemoWeb.Router do
     plug Phoenix.LiveView.Flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :put_layout, {LiveviewDemoWeb.LayoutView, :app}
   end
 
   pipeline :api do
@@ -17,6 +18,8 @@ defmodule LiveviewDemoWeb.Router do
   scope "/", LiveviewDemoWeb do
     pipe_through :browser
 
+#    get "/", PageController, :index
+#
     live("/", PortfolioLive)
   end
 
