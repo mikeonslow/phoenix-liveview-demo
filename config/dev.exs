@@ -52,7 +52,8 @@ config :liveview_demo, LiveviewDemoWeb.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/liveview_demo_web/views/.*(ex)$},
-      ~r{lib/liveview_demo_web/templates/.*(eex)$}
+      ~r{lib/liveview_demo_web/templates/.*(eex)$},
+      ~r{lib/live_view_counter_web/live/.*(ex)$}
     ]
   ]
 

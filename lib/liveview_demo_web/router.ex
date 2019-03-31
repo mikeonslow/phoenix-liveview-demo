@@ -5,6 +5,7 @@ defmodule LiveviewDemoWeb.Router do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
+    plug Phoenix.LiveView.Flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -16,7 +17,7 @@ defmodule LiveviewDemoWeb.Router do
   scope "/", LiveviewDemoWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    live("/", PortfolioLive)
   end
 
   # Other scopes may use custom stacks.

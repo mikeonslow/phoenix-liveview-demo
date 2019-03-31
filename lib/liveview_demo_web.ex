@@ -39,6 +39,7 @@ defmodule LiveviewDemoWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
+      import Phoenix.LiveView, only: [live_render: 2, live_render: 3]
       import LiveviewDemoWeb.ErrorHelpers
       import LiveviewDemoWeb.Gettext
       alias LiveviewDemoWeb.Router.Helpers, as: Routes
@@ -48,6 +49,7 @@ defmodule LiveviewDemoWeb do
   def router do
     quote do
       use Phoenix.Router
+      import Phoenix.LiveView.Router
       import Plug.Conn
       import Phoenix.Controller
     end
