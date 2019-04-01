@@ -1,6 +1,11 @@
 defmodule LiveviewDemoWeb.UserSocket do
   use Phoenix.Socket
 
+  transport :websocket, Phoenix.Transports.WebSocket,
+            check_origin: [
+              "//example.com", //replace this with your domain
+            ]
+
   ## Channels
   # channel "room:*", LiveviewDemoWeb.RoomChannel
 

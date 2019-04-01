@@ -15,9 +15,10 @@ config :liveview_demo, LiveviewDemoWeb.Endpoint,
   url: [host: "phoenix-liveview-demo", port: System.get_env("PORT")],
 #  force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json",
-  secret_key_base: "bn5OIsGf8PsWXA0Mo2yldEx2bjfM9JQl"
+  secret_key_base: "bn5OIsGf8PsWXA0Mo2yldEx2bjfM9JQl",
+  check_origin: ["https://phoenix-liveview-demo.herokuapp.com/"]
+            # Do not print debug messages in production
 
-# Do not print debug messages in production
 config :logger, level: :info
 
 # ## SSL Support
