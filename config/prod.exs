@@ -11,7 +11,7 @@ use Mix.Config
 # before starting your production server.
 
 config :liveview_demo, LiveviewDemoWeb.Endpoint,
-  http: [port: System.get_env("PORT")],
+  http: [port: System.get_env("PORT")]
 #  url: [scheme: "https", host: "phoenix-liveview-demo", port: 443],
 #  force_ssl: [rewrite_on: [:x_forwarded_proto]],
 #  cache_static_manifest: "priv/static/cache_manifest.json",
