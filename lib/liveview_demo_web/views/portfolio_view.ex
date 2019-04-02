@@ -10,9 +10,11 @@ defmodule LiveviewDemoWeb.PortfolioView do
   end
 
   def selected_category_id?(model, categoryId) do
-    IO.puts("Cat matches")
-    IO.inspect({model["selectedCategoryId"], categoryId})
-    model["selectedCategoryId"] == categoryId |> IO.inspect()
+    model["selectedCategoryId"] == categoryId
+  end
+
+  def item_category_id?(model, categoryId) do
+    model["selectedCategoryId"] == categoryId
   end
 
   def get_selected_item_id(model) do
