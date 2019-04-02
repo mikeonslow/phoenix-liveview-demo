@@ -1,13 +1,14 @@
 <div class="container">
   <div class="row mb-5 mt-5">
-    <div class="col-sm">
-      <ul class="nav nav-pills nav-fill">
+    <div class="col-sm text-center">
+      <div class="btn-group-toggle" data-toggle="buttons">
         <%= for category <- get_categories(assigns[:model]) do %>
-          <li class="nav-item" phx-click="select_category" phx-value="<%= category["id"] %>">
-            <a class="nav-link <%= if selected_category_id?(assigns[:model], category["id"]) do %>active<% end %>" href="#"><%= category["label"] %></a>
-          </li>
+          <label phx-click="select_category" phx-value="<%= category["id"] %>" class="btn btn-<%= if selected_category_id?(assigns[:model], category["id"]) do %>primary active<% else %>secondary<% end %>">
+            <input type="checkbox" checked autocomplete="off"> <%= category["label"] %>
+          </label>
         <% end %>
-      </ul>
+      </div>
+    </div>
     </div>
   </div>
   <%= for item <- selected_item(assigns[:model])  do %>
