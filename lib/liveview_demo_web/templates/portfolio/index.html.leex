@@ -10,11 +10,29 @@
       </ul>
     </div>
   </div>
+  <%= for item <- selected_item(assigns[:model])  do %>
+  <div class="row">
+     <div class="col-sm-12 col-md-6">
+       <img src="<%= item["imageUrl"] %>" class="img-fluid img-portfolio" alt="<%= item["title"] %>" />
+    </div>
+     <div class="col-sm-12 col-md-6">
+       <h3><%= item["title"] %></h3>
+       <hr>
+       <p><%= item["description"] %></p>
+       <a href="<%= item["linkUrl"] %>" target="_blank"><%= item["linkUrl"] %></a>
+    </div>
+  </div>
+  <div class="row mb-3">
+     <div class="col-12">
+        <hr>
+    </div>
+  </div>
+  <% end %>
   <div class="row">
     <%= for item <- get_items(assigns[:model]) do %>
       <%= if selected_category_id?(assigns[:model], item["categoryId"]) do %>
       <div class="col-sm-12 col-md-4 mb-4">
-        <img src="<%= item["imageUrl"] %>" alt="<%= item["imageUrl"] %>" class="img-fluid img-portfolio">
+        <img src="<%= item["imageUrl"] %>" alt="<%= item["imageUrl"] %>" class="img-fluid img-portfolio" phx-click="select_item" phx-value="<%= item["id"] %>">
       </div>
       <% end %>
     <% end %>

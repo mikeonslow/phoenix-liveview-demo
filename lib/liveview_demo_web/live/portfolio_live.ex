@@ -33,8 +33,8 @@ defmodule LiveviewDemoWeb.PortfolioLive do
     {:noreply, assign(socket, update_selected_category_id(socket, selectedCategoryId))}
   end
 
-  def handle_event("select_item", data, socket) do
-    {:noreply, update(socket, :selectedItemId, data)}
+  def handle_event("select_item", selectedCategoryId, socket) do
+    {:noreply, assign(socket, update_selected_item_id(socket, selectedCategoryId))}
   end
 
   def render(assigns) do
@@ -57,7 +57,17 @@ defmodule LiveviewDemoWeb.PortfolioLive do
        ) do
     %{
       assigns
-      | model: %{model | "selectedCategoryId" => selectedCategoryId |> String.to_integer()}
+      | model: %{model | "selectedCategoryId" => selectedCategoryId |> String.to_integer(), "selectedItemId" => 0}
+    }
+  end
+
+  defp update_selected_item_id(
+         %{assigns: %{model: model} = assigns} = socket,
+         selectedItemId
+       ) do
+    %{
+      assigns
+      | model: %{model | "selectedItemId" => selectedItemId |> String.to_integer()}
     }
   end
 
