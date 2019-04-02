@@ -12,9 +12,11 @@
   </div>
   <div class="row">
     <%= for item <- get_items(assigns[:model]) do %>
-      <div class="col-sm-12 col-md-4">
-        <img src="<%= item["imageUrl"] %>" alt="<%= item["imageUrl"] %>" style="width: 100%">
+      <%= if selected_category_id?(assigns[:model], item["categoryId"]) do %>
+      <div class="col-sm-12 col-md-4 mb-4">
+        <img src="<%= item["imageUrl"] %>" alt="<%= item["imageUrl"] %>" class="img-fluid img-portfolio">
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>
