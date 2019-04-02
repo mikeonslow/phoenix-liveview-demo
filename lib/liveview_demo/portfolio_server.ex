@@ -1,10 +1,8 @@
 defmodule LiveviewDemo.Portfolio.Server do
   use GenServer
 
-  # Elmfolio.Portfolio.Server.get
-
   def start_link(_args) do
-    GenServer.start_link(__MODULE__, struct(Elmfolio.Portfolio), name: __MODULE__)
+    GenServer.start_link(__MODULE__, struct(LiveviewDemo.Portfolio), name: __MODULE__)
   end
 
   # Callbacks
@@ -61,7 +59,7 @@ defmodule LiveviewDemo.Portfolio.Server do
   end
 
   defp hydrate_portfolio do
-    Elmfolio.Portfolio.Api.get() |> hydrate_portfolio
+    LiveviewDemo.Portfolio.Api.get() |> hydrate_portfolio
   end
 
   defp hydrate_portfolio({200, %{"categories" => _categories, "items" => _items} = portfolio}) do
@@ -69,7 +67,7 @@ defmodule LiveviewDemo.Portfolio.Server do
   end
 
   defp hydrate_portfolio(_data) do
-    {500, struct(Elmfolio.Portfolio)}
+    {500, struct(LiveviewDemo.Portfolio)}
   end
 
   defp like_item(
