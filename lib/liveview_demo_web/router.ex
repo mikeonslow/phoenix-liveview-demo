@@ -18,8 +18,8 @@ defmodule LiveviewDemoWeb.Router do
   scope "/", LiveviewDemoWeb do
     pipe_through :browser
 
-#    get "/", PageController, :index
-#
+    #    get "/", PageController, :index
+    #
     live("/", PortfolioLive)
   end
 
