@@ -6,13 +6,24 @@ defmodule LiveviewDemoWeb.PortfolioLive do
     {code, portfolio} = LiveviewDemo.Portfolio.Server.get()
 
     initialModel =
-      {200,
-       %{
-         "errorMessage" => "",
-         "portfolio" => portfolio,
-         "selectedCategoryId" => map_default_selected_category_id(portfolio["categories"]),
-         "selectedItemId" => 0
-       }}
+      case code do
+        200 ->
+          {code,
+           %{
+             "errorMessage" => "",
+             "portfolio" => portfolio,
+             "selectedCategoryId" => map_default_selected_category_id(portfolio["categories"]),
+             "selectedItemId" => 0
+           }}
+        _ ->
+          {code,
+           %{
+             "errorMessage" => "An error occurred...",
+             "portfolio" => portfolio,
+             "selectedCategoryId" => 0,
+             "selectedItemId" => 0
+           }}
+      end
 
     initialModel
     |> map_assigns(socket)
@@ -31,6 +42,11 @@ defmodule LiveviewDemoWeb.PortfolioLive do
   end
 
   def map_assigns({200, model}, socket) do
+    newSocket = socket |> assign(:model, model)
+    {:ok, newSocket}
+  end
+
+  def map_assigns({_, model}, socket) do
     newSocket = socket |> assign(:model, model)
     {:ok, newSocket}
   end

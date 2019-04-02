@@ -1,4 +1,4 @@
-defmodule Elmfolio.Portfolio.Api do
+defmodule LiveviewDemo.Portfolio.Api do
   use HTTPoison.Base
 
   @headers ["content-type": "application/json"]
@@ -16,11 +16,11 @@ defmodule Elmfolio.Portfolio.Api do
   end
 
   defp handle_response({_, %HTTPoison.Response{status_code: responseCode}}) do
-    {responseCode, struct(Elmfolio.Portfolio)}
+    {responseCode, struct(LiveviewDemo.Portfolio)}
   end
 end
 
-defmodule Elmfolio.Portfolio do
+defmodule LiveviewDemo.Portfolio do
   @derive {Jason.Encoder, only: [:categories, :items]}
   defstruct categories: [], items: []
 end
