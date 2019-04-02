@@ -20,7 +20,7 @@ defmodule LiveviewDemoWeb.PortfolioView do
   def selected_item(model) do
     if model["selectedItemId"] != 0 do
       model["portfolio"]["items"]
-      |> Enum.filter(&selected_item?(&1,  model["selectedCategoryId"],  model["selectedItemId"]))
+      |> Enum.filter(&selected_item?(&1, model["selectedCategoryId"], model["selectedItemId"]))
     else
       []
     end

@@ -20,7 +20,7 @@ config :liveview_demo, LiveviewDemoWeb.Endpoint,
       cd: Path.expand("../assets", __DIR__)
     ]
   ],
-  secret_key_base: "bn5OIsGf8PsWXA0Mo2yldEx2bjfM9JQl"
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
 
 # ## SSL Support
 #

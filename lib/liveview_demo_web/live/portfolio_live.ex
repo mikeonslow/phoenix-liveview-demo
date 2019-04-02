@@ -15,6 +15,7 @@ defmodule LiveviewDemoWeb.PortfolioLive do
              "selectedCategoryId" => map_default_selected_category_id(portfolio["categories"]),
              "selectedItemId" => 0
            }}
+
         _ ->
           {code,
            %{
@@ -57,7 +58,11 @@ defmodule LiveviewDemoWeb.PortfolioLive do
        ) do
     %{
       assigns
-      | model: %{model | "selectedCategoryId" => selectedCategoryId |> String.to_integer(), "selectedItemId" => 0}
+      | model: %{
+          model
+          | "selectedCategoryId" => selectedCategoryId |> String.to_integer(),
+            "selectedItemId" => 0
+        }
     }
   end
 
