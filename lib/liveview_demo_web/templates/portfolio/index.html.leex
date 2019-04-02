@@ -1,5 +1,20 @@
-<div>
-  <h1 phx-click="boom">The count is: <%= @val %></h1>
-  <button phx-click="dec">-</button>
-  <button phx-click="inc">+</button>
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-sm">
+      <ul class="nav nav-pills nav-fill">
+        <%= for category <- get_categories(assigns[:model]) do %>
+          <li class="nav-item" phx-click="select_category" phx-value="<%= category["id"] %>">
+            <a class="nav-link <%= if selected_category_id?(assigns[:model], category["id"]) do %>active<% end %>" href="#"><%= category["label"] %></a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <%= for item <- get_items(assigns[:model]) do %>
+      <div class="col-sm-12 col-md-4">
+        <img src="<%= item["imageUrl"] %>" alt="<%= item["imageUrl"] %>" style="width: 100%">
+      </div>
+    <% end %>
+  </div>
 </div>
