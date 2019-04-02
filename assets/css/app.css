@@ -1,4 +1,12 @@
 /* This file is for your main application css. */
 
-@import "./phoenix.css";
-@import "../../deps/phoenix_live_view/assets/css/live_view.css";
+
+body {
+    background-color: white;
+}
+
+
+.img-portfolio {
+    border: 1px solid #666 !important;
+    padding: 5px;
+}
